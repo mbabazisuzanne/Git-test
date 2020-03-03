@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en">
+ <head>	
+  <meta charset="UTF-8">	
+    <title>Shipping and Billing</title>	
+    <style>		
+        input{			
+          border:1px solid black;
+	}		
+        input:focus{
+	   background-color: #E6E6E6;		
+        }
+	fieldset{
+ 	   margin-bottom: 4%;
+	}	
+    </style>
+  </head>
+  <body>
+	<h1>JavaScript Homework</h1>	
+        <script>
+            function billingFunction(){
+                var checkbox = document.getElementById("same");
+                var billingName = document.getElementById("billingName");
+                var billingZip = document.getElementById("billingZip");
+  
+                var shippingName = document.getElementById("shippingName").value;
+                var shippingZip = document.getElementById("shippingZip").value;
+  
+  if (checkbox.checked)
+    {
+      if(shippingName && shippingZip){
+        billingName.value = shippingName;
+        billingZip.value = shippingZip;
+      }
+    }
+  else{
+    billingName.value = "";
+    billingZip.value = "";
+  }
+}
+        </script>
+
+		<form>		
+        <fieldset>
+	  <legend>Shipping Information</legend>			  <label for ="shippingName">Name:</label>		  <input type = "text" name = "Name" id = "shippingName" required><br/>
+
+	  <label for = "shippingzip">Zip code:</label>		  <input type = "text" name = "zip" id = "shippingZip" pattern = "[0-9]{5}" required><br/>
+        </fieldset>
+	<input type="checkbox" id="same" name="same" onchange= "billingFunction()"/>		
+        <label for = "same">Is the Billing Information the Same?</label>						
+        <fieldset>
+ 	  <legend>Billing Information</legend>			  <label for ="billingName">Name:</label>		  <input type = "text" name = "Name" id = "billingName" required><br/>
+	   
+          <label for = "billingzip">Zip code:</label>		  <input type = "text" name = "zip" id = "billingZip" pattern = "[0-9]{5}" required><br/>
+	</fieldset>
+
+	<input type = "submit" value = "Verify"/>	
+    </form>
+  </body>
+</html>
